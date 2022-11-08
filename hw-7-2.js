@@ -5,17 +5,21 @@ const players = [
   { id: 4, name: "Olga", scorePoints: 2356 },
 ];
 
-for (let player of players) {
-  storeScores.push(players.scorePoints);
-}
+// let maxScorePoints = 0;
+// for (let player of players) {
+//   maxScorePoints = Math.max(maxScorePoints, player.scorePoints);
+// }
+// console.log(`Максимально значение scorePoints = ${maxScorePoints}`);
 
-let MaxScorePoints = 0;
+let scores = []; //задаем новый пустой массив и далее запушим в него нужные нам свойства
+let maxScorePoints = 0;
 for (let player of players) {
-  MaxScorePoints = Math.max(MaxScorePoints, player.scorePoints);
+  maxScorePoints = player.scorePoints;
+  scores.push(maxScorePoints); //пушим нужные нам свойства
 }
-console.log(`Максимально значение scorePoints = ${MaxScorePoints}`);
+console.log(Math.max(...scores)); //spread-оператор вливает нам значения массива в нужное меcто в нашем случае в метод, но можно влить и в новый массив)
 
-switch (MaxScorePoints) {
+switch (maxScorePoints) {
   case players[0].scorePoints:
     console.log("Игрок с максимальным количеством scorePoints:");
     console.log(players[0]);
